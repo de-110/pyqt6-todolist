@@ -4,3 +4,6 @@ ui/__pycache__/
 modules/test.py
 modules/test2.py
 modules/todoCRUD.py
+main.spec
+*build
+dist
