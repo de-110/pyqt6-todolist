@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
@@ -13,12 +14,10 @@ class TodoList(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setWindowTitle("Home")
-        self.setWindowIcon(QIcon(icons_file_path))
         
         self.db_path = None
         self.todo_list_task = None
 
-        self.set_db_path()
         self.load_data()
         self.populate_task_view()
 
@@ -28,19 +27,16 @@ class TodoList(QMainWindow, Ui_MainWindow):
     def OpenPopUp(self):
         self.popup = PopUp(self)
         self.popup.show()
-
-    def set_db_path(self):
-        db_dirname = '../database'
-        db_filename = 'todolist.json'
-
-        db_directory = os.path.dirname(os.path.abspath(__file__))
-        self.db_path = os.path.join(db_directory, db_dirname, db_filename)
     
     def load_data(self):
         try:
             with open(self.db_path, "r") as data_file:
                 self.todo_list_task = json.load(data_file)
+
         except Exception:
+            db_dir = os.path.join(os.getcwd(), "database")
+            os.makedirs(db_dir, exist_ok=True)
+            self.db_path = os.path.join(db_dir, 'todolist.json')
             self.todo_list_task = {
                 'todo_list': []
             }
