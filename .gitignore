@@ -1,6 +1,5 @@
 .venv/
-modules/__pycache__/
-ui/__pycache__/
+**__pycache__
 modules/test.py
 modules/test2.py
 modules/todoCRUD.py
@@ -10,3 +9,4 @@ dist
 **__init__.py
 ui/todolist_home.ui
 ui/todolist_popup.ui
+*database
