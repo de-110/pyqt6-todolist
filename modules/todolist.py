@@ -6,16 +6,9 @@ from PyQt6.QtGui import QFont, QIcon
 from PyQt6 import uic
 
 from modules.todo_popup import PopUp
+from ui.todolist_home import Ui_MainWindow
 
-
-ui_directory = os.path.dirname(os.path.abspath(__file__))
-ui_file_path = os.path.join(ui_directory, '../ui', 'todolist_home.ui')
-todolist_home_ui, classinfo = uic.loadUiType(ui_file_path)
-
-icons_directory = os.path.dirname(os.path.abspath(__file__))
-icons_file_path = os.path.join(icons_directory, '../assets', 'resources.qrc')
-
-class TodoList(QMainWindow, todolist_home_ui):
+class TodoList(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

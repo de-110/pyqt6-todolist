@@ -3,12 +3,9 @@ import os
 from PyQt6.QtWidgets import QWidget, QMessageBox
 from PyQt6 import uic
 
+from ui.todolist_popup import Ui_Form
 
-ui_directory = os.path.dirname(os.path.abspath(__file__))
-ui_file_path = os.path.join(ui_directory, '../ui', 'todolist_popup.ui')
-todolist_popup_ui, classinfo = uic.loadUiType(ui_file_path)
-
-class PopUp(QWidget, todolist_popup_ui):
+class PopUp(QWidget, Ui_Form):
     def __init__(self, parent=None):
         super(PopUp, self).__init__()
         self.parent = parent
