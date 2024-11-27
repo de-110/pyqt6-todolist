@@ -7,3 +7,6 @@ modules/todoCRUD.py
 main.spec
 *build
 dist
+**__init__.py
+ui/todolist_home.ui
+ui/todolist_popup.ui
